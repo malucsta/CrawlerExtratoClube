@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Crawler.Infra.RabbitMq;
 
 namespace Crawler.Infra.Components;
 
@@ -15,6 +16,7 @@ public static class ExtensionMethods
         // COMPONENTS 
         services.AddCache();
         services.AddRateLimiter();
+        services.AddRabbitMq(configuration);
 
         return services;
     }
@@ -41,4 +43,6 @@ public static class ExtensionMethods
     {
         app.UseMiddleware<RateLimitingMiddleware>();
     }
+
+
 }

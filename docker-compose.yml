@@ -17,6 +17,18 @@ services:
       - "6379:6379"
     networks:
       - data-network
+  
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    #environment:
+    #  - RABBITMQ_DEFAULT_USER=guest
+    #  - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - data-network
 
 networks:
   data-network:  
