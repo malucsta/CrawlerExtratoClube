@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Crawler.Infra.RabbitMq;
+using Crawler.Infra.Elasticsearch;
 
 namespace Crawler.Infra.Components;
 
@@ -17,6 +18,7 @@ public static class ExtensionMethods
         services.AddCache();
         services.AddRateLimiter();
         services.AddRabbitMq(configuration);
+        services.AddElasticSearch(configuration);
 
         return services;
     }

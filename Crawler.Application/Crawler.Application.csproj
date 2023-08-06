@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.15.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Crawler.Domain\Crawler.Domain.csproj" />
+    <ProjectReference Include="..\Crawler.Infra.Components.Interfaces\Crawler.Infra.Components.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
