@@ -16,4 +16,9 @@ Uma vez que a busca alcançou a camada do Crawler, é feita uma nova busca no cach
 Caso mais ninguém tenha processado anteriormente aqueles dados, a busca é finalmente feita no site e devolvida através de uma outra fila. 
 
 ### Considerações 
-- No projeto há também uma implementação de RateLimit aproveitando o uso do Redis. Ainda que um gateway fosse a solução mais adequada, para evitar a sobrecarga de requisições, é configurado um número máximo de requisições por determinado período em segundos. 
+- No projeto há também uma implementação de RateLimit aproveitando o uso do Redis. Ainda que um gateway fosse a solução mais adequada, para evitar a sobrecarga de requisições, é configurado um número máximo de requisições por determinado período em segundos.
+
+### Instruções
+Como o projeto está dockerizado, para subir as dependências basta rodar: 
+``` docker compose up ```
+
