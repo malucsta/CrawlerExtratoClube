@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Web", "Crawler.Web\Crawler.Web.csproj", "{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{60B25D51-90EC-4DAC-8D2F-135DE6996105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60B25D51-90EC-4DAC-8D2F-135DE6996105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60B25D51-90EC-4DAC-8D2F-135DE6996105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{31362167-71FA-4267-8DA2-F665CA16B41A} = {A52266E8-C34E-451D-8BC4-F7B8B5540199}
 		{212ED267-545A-40A2-B229-7594BA2B7A76} = {D27EA393-FC6C-4AE7-A946-71688FE19968}
 		{722F181B-604E-4DAF-8D86-BC2BF6274D9A} = {97397621-EC7C-447F-8704-71EDC9F2E56E}
+		{870DCBEE-9F4D-4D2C-B35F-08FDB7E5D1BE} = {292A98DD-ADEF-47BC-8FB9-D04EC8394D6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {014FEE9D-42B4-45A1-A971-12F98989BA6C}

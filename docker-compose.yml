@@ -54,6 +54,13 @@ services:
       - data-network
 
 
+  crawler.web:
+    image: ${DOCKER_REGISTRY-}crawlerweb
+    container_name: crawler-web
+    build:
+      context: .
+      dockerfile: Crawler.Web/Dockerfile
+
 networks:
   data-network:  
     driver: bridge

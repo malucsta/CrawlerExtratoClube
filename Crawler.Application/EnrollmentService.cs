@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using FluentResults;
 using Crawler.Domain.Enrollments.Responses;
+using Crawler.Infra.Components.Interfaces.Crawler;
 
 namespace Crawler.Application;
 
@@ -14,23 +15,29 @@ public class EnrollmentService : IEnrollmentService
     private readonly ICacheRepository _cacheRepository;
     private readonly IMessagePublisher _messagePublisher;
     private readonly ILogger<EnrollmentService> _logger;
+    private readonly ICrawlerService _crawlerService;
+    private readonly EnrollmentsSettings _settings;
 
     public EnrollmentService(
         ICacheRepository cacheRepository, 
         IMessagePublisher messagePublisher, 
-        ILogger<EnrollmentService> logger)
+        ILogger<EnrollmentService> logger,
+        ICrawlerService crawlerService,
+        EnrollmentsSettings settings)
     {
         _cacheRepository = cacheRepository;
         _messagePublisher = messagePublisher;
+        _crawlerService = crawlerService;
+        _settings = settings;
         _logger = logger;
     }
 
     public async Task<Result<SearchEnrollmentsResponse>> ProcessEnrollmentSearchRequest(SearchEnrollmentsRequest request)
     {
-        // consultar o cache
+        // consultar o cache -> ver se já expirou
         var cachedResponse = await _cacheRepository.GetAsync<SearchEnrollmentsResponse>(request.CPF);
         
-        if(cachedResponse is not null) 
+        if(cachedResponse is not null && !(cachedResponse.CreatedAt.AddDays(_settings.DaysToExpireSearch) < DateTime.UtcNow))
             return Result.Ok(cachedResponse);
 
         // consultar o elastic 
@@ -42,8 +49,25 @@ public class EnrollmentService : IEnrollmentService
         return Result.Ok();
     } 
 
-    public async Task CrawlEnrollments()
+    public async Task CrawlEnrollments(SearchEnrollmentsRequest request)
     {
+        // TODO
+        // conferir cache
 
+        var enrollments = _crawlerService.CrawlExtratoClubeEnrollments(request.User, request.Password, request.CPF);
+        var response = new SearchEnrollmentsResponse
+        {
+            CPF = request.CPF,
+            CreatedAt = DateTime.UtcNow,
+            Enrollments = enrollments.ToList()
+        };
+
+        // salvar no cache
+
+        // salvar no elastic
+
+        //publicar a mensagem
+        var queue = Infra.Components.Interfaces.Constants.Queues.ConsultedByCrawler;
+        _messagePublisher.PublishMessageAtQueue(queue, JsonSerializer.Serialize(response));
     }
 }

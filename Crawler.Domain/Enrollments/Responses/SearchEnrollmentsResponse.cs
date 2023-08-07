@@ -1,7 +1,6 @@
 ﻿namespace Crawler.Domain.Enrollments.Responses;
 
-public class SearchEnrollmentsResponse
+public class SearchEnrollmentsResponse : Enrollment
 {
-    public string CPF { get; set; } = string.Empty;
-    public List<string> Enrollments { get; set; } = new List<string>();
+    
 }
