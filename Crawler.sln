@@ -19,21 +19,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Infra.Elasticsearch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.API", "Crawler.API\Crawler.API.csproj", "{57CEFD23-772E-4882-8612-C7D09B29BE9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Infra.Components", "Crawler.Infra.Components\Crawler.Infra.Components.csproj", "{0AF1AC2A-BD12-4228-A2A4-C94A6FF7BF04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Infra.Components", "Crawler.Infra.Components\Crawler.Infra.Components.csproj", "{0AF1AC2A-BD12-4228-A2A4-C94A6FF7BF04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Infra.Components.Interfaces", "Crawler.Infra.Components.Interfaces\Crawler.Infra.Components.Interfaces.csproj", "{E98DB593-9CDD-4AC4-9B0A-B6D363F49710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Infra.Components.Interfaces", "Crawler.Infra.Components.Interfaces\Crawler.Infra.Components.Interfaces.csproj", "{E98DB593-9CDD-4AC4-9B0A-B6D363F49710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Domain", "Crawler.Domain\Crawler.Domain.csproj", "{31362167-71FA-4267-8DA2-F665CA16B41A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Domain", "Crawler.Domain\Crawler.Domain.csproj", "{31362167-71FA-4267-8DA2-F665CA16B41A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D27EA393-FC6C-4AE7-A946-71688FE19968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Tests", "Crawler.Tests\Crawler.Tests.csproj", "{212ED267-545A-40A2-B229-7594BA2B7A76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Tests", "Crawler.Tests\Crawler.Tests.csproj", "{212ED267-545A-40A2-B229-7594BA2B7A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Web", "Crawler.Web\Crawler.Web.csproj", "{4A962BEB-9DBD-4E01-9905-EDF753177A00}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler.Application", "Crawler.Application\Crawler.Application.csproj", "{722F181B-604E-4DAF-8D86-BC2BF6274D9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler.Application", "Crawler.Application\Crawler.Application.csproj", "{722F181B-604E-4DAF-8D86-BC2BF6274D9A}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{60B25D51-90EC-4DAC-8D2F-135DE6996105}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D9FCED3-357E-4ED3-AC99-1C169B9FFBDA}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,10 +76,6 @@ Global
 		{212ED267-545A-40A2-B229-7594BA2B7A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{212ED267-545A-40A2-B229-7594BA2B7A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{212ED267-545A-40A2-B229-7594BA2B7A76}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A962BEB-9DBD-4E01-9905-EDF753177A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A962BEB-9DBD-4E01-9905-EDF753177A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A962BEB-9DBD-4E01-9905-EDF753177A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A962BEB-9DBD-4E01-9905-EDF753177A00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{722F181B-604E-4DAF-8D86-BC2BF6274D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{722F181B-604E-4DAF-8D86-BC2BF6274D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{722F181B-604E-4DAF-8D86-BC2BF6274D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -98,7 +97,6 @@ Global
 		{E98DB593-9CDD-4AC4-9B0A-B6D363F49710} = {292A98DD-ADEF-47BC-8FB9-D04EC8394D6E}
 		{31362167-71FA-4267-8DA2-F665CA16B41A} = {A52266E8-C34E-451D-8BC4-F7B8B5540199}
 		{212ED267-545A-40A2-B229-7594BA2B7A76} = {D27EA393-FC6C-4AE7-A946-71688FE19968}
-		{4A962BEB-9DBD-4E01-9905-EDF753177A00} = {292A98DD-ADEF-47BC-8FB9-D04EC8394D6E}
 		{722F181B-604E-4DAF-8D86-BC2BF6274D9A} = {97397621-EC7C-447F-8704-71EDC9F2E56E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

@@ -1,9 +1,10 @@
 ﻿using Crawler.Domain.Enrollments.Requests;
+using Crawler.Domain.Enrollments.Responses;
 using FluentResults;
 
 namespace Crawler.Domain.Enrollments;
 
 public interface IEnrollmentService
 {
-    Result SendEnrollmentSearchRequest(SearchEnrollmentsRequest request);
+    Task<Result<SearchEnrollmentsResponse>> ProcessEnrollmentSearchRequest(SearchEnrollmentsRequest request);
 }

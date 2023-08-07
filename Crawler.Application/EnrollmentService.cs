@@ -5,6 +5,7 @@ using Crawler.Infra.Components.Interfaces.Messaging;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using FluentResults;
+using Crawler.Domain.Enrollments.Responses;
 
 namespace Crawler.Application;
 
@@ -24,9 +25,13 @@ public class EnrollmentService : IEnrollmentService
         _logger = logger;
     }
 
-    public Result SendEnrollmentSearchRequest(SearchEnrollmentsRequest request)
+    public async Task<Result<SearchEnrollmentsResponse>> ProcessEnrollmentSearchRequest(SearchEnrollmentsRequest request)
     {
         // consultar o cache
+        var cachedResponse = await _cacheRepository.GetAsync<SearchEnrollmentsResponse>(request.CPF);
+        
+        if(cachedResponse is not null) 
+            return Result.Ok(cachedResponse);
 
         // consultar o elastic 
 
@@ -36,4 +41,9 @@ public class EnrollmentService : IEnrollmentService
         
         return Result.Ok();
     } 
+
+    public async Task CrawlEnrollments()
+    {
+
+    }
 }

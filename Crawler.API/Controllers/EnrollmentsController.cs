@@ -1,11 +1,12 @@
 ﻿using Crawler.Domain.Enrollments;
 using Crawler.Domain.Enrollments.Requests;
+using Crawler.Domain.Enrollments.Responses;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crawler.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/enrollments")]
     [ApiController]
     public class EnrollmentsController : ControllerBase
     {
@@ -17,12 +18,12 @@ namespace Crawler.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Result> SeachForEnrollments([FromBody] SearchEnrollmentsRequest request)
+        public async Task<ActionResult<Result<SearchEnrollmentsResponse>>> SeachForEnrollments([FromBody] SearchEnrollmentsRequest request)
         {
-            var response = _service.SendEnrollmentSearchRequest(request);
-            
-            return response.IsSuccess 
-                ? Ok(response) 
+            var response = await _service.ProcessEnrollmentSearchRequest(request);
+
+            return response.IsSuccess
+                ? response.Value is not null ? Ok(response) : Accepted()
                 : BadRequest(response);
         }
     }
