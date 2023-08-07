@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Crawler.Application\Crawler.Application.csproj" />
     <ProjectReference Include="..\Crawler.Infra.Components.Interfaces\Crawler.Infra.Components.Interfaces.csproj" />
   </ItemGroup>
 

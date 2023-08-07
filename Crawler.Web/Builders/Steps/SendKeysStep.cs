@@ -6,7 +6,6 @@ namespace Crawler.Web.Builders.Steps;
 
 public class SendKeysStep : IStep
 {
-    private IWebElement element;
     private string _tag;
     private Selector _selector;
     private string _text;

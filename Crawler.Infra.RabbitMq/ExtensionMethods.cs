@@ -1,4 +1,5 @@
-﻿using Crawler.Infra.Components.Interfaces.Messaging;
+﻿using Crawler.Domain.Enrollments;
+using Crawler.Infra.Components.Interfaces.Messaging;
 using Crawler.Infra.RabbitMq.Pub;
 using Crawler.Infra.RabbitMq.Sub;
 using Microsoft.Extensions.Configuration;
@@ -48,7 +49,8 @@ public static class ExtensionMethods
             //UserName = settings.User,
             //Password = settings.Pass
         };
-
+        
+        //Thread.Sleep(5000);
         var connection = factory.CreateConnection();
         services.AddSingleton<IConnection>(connection);
         return connection;
@@ -96,7 +98,8 @@ public static class ExtensionMethods
         services.AddSingleton<IHostedService>(provider =>
         {
             var channel = provider.GetRequiredService<IModel>();
-            return new MessageConsumerBackgroundService(channel, queueName);
+
+            return new MessageConsumerBackgroundService(channel, queueName, provider);
         });
 
         return services;

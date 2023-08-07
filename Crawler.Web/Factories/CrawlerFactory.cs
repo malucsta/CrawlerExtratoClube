@@ -3,6 +3,8 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium;
+using Microsoft.Extensions.Options;
+using OpenQA.Selenium.Interactions;
 
 namespace Crawler.Web.Factories;
 
@@ -15,9 +17,19 @@ public static class CrawlerFactory
             case BrowserType.Chrome:
                 var chromeOptions = new ChromeOptions();
                 if (headless) chromeOptions.AddArgument("--headless");
+                chromeOptions.AddArgument("--no-sandbox"); // Necessário para evitar problemas em contêineres
 
-                //chromeOptions.AddArgument("--incognito");
-                return new ChromeDriver(driverPath, chromeOptions);
+                ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+                var port = service.Port;
+                service.Port = 9515;
+                return new ChromeDriver(service, chromeOptions);
+
+                // Create and return a new ChromeDriver instance
+                //return new ChromeDriver(chromeOptions);
+        
+
+                ////chromeOptions.AddArgument("--incognito");
+                //return new ChromeDriver(driverPath, chromeOptions);
 
             case BrowserType.Firefox:
                 var firefoxOptions = new FirefoxOptions();

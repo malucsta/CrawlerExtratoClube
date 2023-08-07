@@ -16,6 +16,14 @@ RUN dotnet build "Crawler.Web.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "Crawler.Web.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
+FROM selenium/standalone-chrome:latest
+# Baixar e instalar o ChromeDriver
+RUN wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE | xargs -I{} wget -qO /usr/local/bin/chromedriver "https://chromedriver.storage.googleapis.com/{}/chromedriver_linux64.zip" && \
+    unzip /usr/local/bin/chromedriver -d /usr/local/bin && \
+    chmod +x /usr/local/bin/chromedriver
+
+EXPOSE 9515  # porta do ChromeDriver
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

@@ -3,12 +3,13 @@ using Crawler.Web.Enums;
 using Crawler.Web.Factories.Steps.Pages.ExtratoClube;
 using Crawler.Web.Factories;
 using OpenQA.Selenium;
+using Crawler.Infra.Components.Interfaces.Crawler;
 
 namespace Crawler.Web;
 
-public class CrawlerService
+public class CrawlerService : ICrawlerService
 {
-    public static IEnumerable<string> CrawlExtratoClubeEnrollments(string user, string password, string cpf)
+    public IEnumerable<string> CrawlExtratoClubeEnrollments(string user, string password, string cpf)
     {
         var chromedriverPath = GetChromeDriverPath();
         var driver = CrawlerFactory.CreateWebDriver(BrowserType.Chrome, chromedriverPath);
@@ -43,7 +44,9 @@ public class CrawlerService
     private static string GetChromeDriverPath()
     {
         string currentFolderPath = Directory.GetCurrentDirectory();
-        currentFolderPath = $"{currentFolderPath}\\Drivers";
-        return Path.Combine(currentFolderPath, "chromedriver.exe");
+        return currentFolderPath;
+        //currentFolderPath = $"{currentFolderPath}\\Drivers";
+        //currentFolderPath = $"{currentFolderPath}/Drivers";
+        //return Path.Combine(currentFolderPath, "chromedriver.exe");
     }
 }

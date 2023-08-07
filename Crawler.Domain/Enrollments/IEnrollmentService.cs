@@ -7,4 +7,5 @@ namespace Crawler.Domain.Enrollments;
 public interface IEnrollmentService
 {
     Task<Result<SearchEnrollmentsResponse>> ProcessEnrollmentSearchRequest(SearchEnrollmentsRequest request);
+    Task CrawlEnrollments(SearchEnrollmentsRequest request);
 }

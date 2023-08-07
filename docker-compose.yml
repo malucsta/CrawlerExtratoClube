@@ -7,6 +7,10 @@ services:
     build:
       context: .
       dockerfile: Crawler.API/Dockerfile
+    ports:
+      - "9515:9515"  # Map container port to host port
+    depends_on:
+      - rabbitmq
     networks:
       - data-network
   
@@ -57,6 +61,8 @@ services:
   crawler.web:
     image: ${DOCKER_REGISTRY-}crawlerweb
     container_name: crawler-web
+    ports:
+      - "8080:9515"  # Map container port to host port
     build:
       context: .
       dockerfile: Crawler.Web/Dockerfile

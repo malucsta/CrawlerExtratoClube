@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Crawler.Application\Crawler.Application.csproj" />
     <ProjectReference Include="..\Crawler.Domain\Crawler.Domain.csproj" />
     <ProjectReference Include="..\Crawler.Infra.Components\Crawler.Infra.Components.csproj" />
+    <ProjectReference Include="..\Crawler.Web\Crawler.Web.csproj" />
   </ItemGroup>
 
 </Project>

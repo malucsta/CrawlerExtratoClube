@@ -63,10 +63,10 @@ public class EnrollmentService : IEnrollmentService
         };
 
         // salvar no cache
+        await _cacheRepository.SetAsync(response.CPF, response);
 
         // salvar no elastic
 
-        //publicar a mensagem
         var queue = Infra.Components.Interfaces.Constants.Queues.ConsultedByCrawler;
         _messagePublisher.PublishMessageAtQueue(queue, JsonSerializer.Serialize(response));
     }

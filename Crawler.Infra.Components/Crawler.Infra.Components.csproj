@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Crawler.Infra.Elasticsearch\Crawler.Infra.Elasticsearch.csproj" />
     <ProjectReference Include="..\Crawler.Infra.RabbitMq\Crawler.Infra.RabbitMq.csproj" />
     <ProjectReference Include="..\Crawler.Infra.Redis\Crawler.Infra.Redis.csproj" />
+    <ProjectReference Include="..\Crawler.Web\Crawler.Web.csproj" />
   </ItemGroup>
 
 </Project>

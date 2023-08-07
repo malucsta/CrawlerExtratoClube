@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Crawler.Infra.RabbitMq;
 using Crawler.Infra.Elasticsearch;
+using Crawler.Web;
 
 namespace Crawler.Infra.Components;
 
@@ -19,6 +20,7 @@ public static class ExtensionMethods
         services.AddRateLimiter();
         services.AddRabbitMq(configuration);
         services.AddElasticSearch(configuration);
+        services.AddCrawler();
 
         return services;
     }
