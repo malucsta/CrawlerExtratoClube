@@ -22,14 +22,8 @@ public static class CrawlerFactory
                 ChromeDriverService service = ChromeDriverService.CreateDefaultService();
                 var port = service.Port;
                 service.Port = 9515;
+
                 return new ChromeDriver(service, chromeOptions);
-
-                // Create and return a new ChromeDriver instance
-                //return new ChromeDriver(chromeOptions);
-        
-
-                ////chromeOptions.AddArgument("--incognito");
-                //return new ChromeDriver(driverPath, chromeOptions);
 
             case BrowserType.Firefox:
                 var firefoxOptions = new FirefoxOptions();
