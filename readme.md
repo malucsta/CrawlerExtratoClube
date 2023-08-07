@@ -22,3 +22,8 @@ Caso mais ninguém tenha processado anteriormente aqueles dados, a busca é finalm
 Como o projeto está dockerizado, para subir as dependências basta rodar: 
 ``` docker compose up ```
 
+### Pendências
+1. Adicionar elasticsearch
+2. Ajustar selenium -> não descobri ainda como rodar ele em um ambiente containerizado
+ (Apenas por estas razões o projeto não encontra-se completo)
+
